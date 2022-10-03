@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CubeSpawnScript : MonoBehaviour
 {
 
     [SerializeField] GameObject SpawnPointCube;
+    [SerializeField] List<GameObject> CubeList;
     // Start is called before the first frame update
+    private void Start()
+    {
+        SpawnPointCube.SetActive(false);
+    }
     void Awake()
     {
         EventBroadcaster.Instance.AddObserver(EventNames.Event_Exercise.CUBE_SPAWN, SpawnCube);
+        EventBroadcaster.Instance.AddObserver(EventNames.Event_Exercise.CLEAR_ALL, ClearAll);
     }
 
     // Update is called once per frame
@@ -21,11 +29,22 @@ public class CubeSpawnScript : MonoBehaviour
 
     private void SpawnCube(Parameters param)
     {
-        int cubeSpawnAmt = param.GetIntExtra("cube", 1);
+        Debug.Log("Spawning Cube");
+        int cubeSpawnAmt = param.GetIntExtra("cubeCount", 1);
 
         for (int i = 0; i < cubeSpawnAmt; i++)
         {
-            GameObject obj = Instantiate(SpawnPointCube, this.SpawnPointCube.transform);
+            GameObject obj = Instantiate(this.SpawnPointCube, this.SpawnPointCube.transform.position, Quaternion.identity);
+            CubeList.Add(obj);
+            obj.SetActive(true);
+        }
+    }
+
+    private void ClearAll()
+    {
+        for(int i = 0; i < CubeList.Count; i++)
+        {
+            Destroy(this.CubeList[i]);
         }
     }
 }

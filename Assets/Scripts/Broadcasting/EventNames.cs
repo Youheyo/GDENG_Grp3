@@ -55,6 +55,7 @@ public class EventNames {
         public const string OBJ_SPAWN = "OBJ_SPAWN";
         public const string BALL_SPAWN = "BALL_SPAWN";
 		public const string CUBE_SPAWN = "CUBE_SPAWN";
+		public const string CLEAR_ALL = "CLEAR_ALL";
 	}
 }
 
