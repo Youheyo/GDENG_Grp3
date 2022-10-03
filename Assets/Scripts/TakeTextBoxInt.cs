@@ -10,16 +10,14 @@ public class TakeTextBoxInt : MonoBehaviour
 {
     //Use LEGACY INPUTFIELD
     [SerializeField] InputField inputfield;
-    // Start is called before the first frame update
      string stringvalue;
-    
+     int integervalue;    
     
 
     public void onButtonPress()
     {
         stringvalue = inputfield.text;
-        int integervalue;
-        int.TryParse(stringvalue, out integervalue);
+            int.TryParse(stringvalue, out integervalue);
         Debug.Log(integervalue);
     }
 }
