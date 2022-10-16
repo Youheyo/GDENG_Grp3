@@ -22,8 +22,10 @@ public class GrabScript : MonoBehaviour
     void Update()
     {
         Debug.Log(camera.transform.rotation.y);
-        if (Input.GetMouseButtonDown(0) && Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) &&
-            hit.transform.GetComponent <Rigidbody>())
+        if (Input.GetMouseButtonDown(0) && 
+            Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) &&
+            hit.transform.GetComponent <Rigidbody>() && 
+            hit.transform.gameObject.CompareTag("Clutchable"))
         {
             grabbedObject = hit.transform.gameObject;
         }

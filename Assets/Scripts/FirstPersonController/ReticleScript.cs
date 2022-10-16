@@ -23,7 +23,7 @@ public class ReticleScript : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.transform.gameObject.CompareTag("Interactable"))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.transform.gameObject.CompareTag("Clutchable"))
         {
             reticle.color = new Color(activeColor.r, activeColor.g, activeColor.b, activeColor.a);
         }
