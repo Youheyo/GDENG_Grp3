@@ -21,10 +21,11 @@ public class PlayerInteract : MonoBehaviour
 			{
 				raycastedObj = hit.collider.gameObject;
 
-				if (Input.GetKeyDown(KeyCode.Mouse0))
+				if (Input.GetKeyDown(KeyCode.E))
 				{
 					Debug.Log("Interacted with " + raycastedObj.name);
-					raycastedObj.SetActive(false);
+					//raycastedObj.SetActive(false);
+					raycastedObj.GetComponent<ObjectInteracted>().onInteract();
 				}
 			}
 		}
