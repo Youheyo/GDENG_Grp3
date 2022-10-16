@@ -19,6 +19,12 @@ public class EventNames {
 		public const string BUTTON_2_PRESSED = "BUTTON_2_PRESSED";
 		public const string CHEST_1_PRESSED = "CHEST_1_PRESSED";
 	}
+	
+	public class Goal_Notes
+	{
+		public const string LEVEL_1_PRESSED = "LEVEL_1_PRESSED";
+		public const string LEVEL_2_PRESSED = "LEVEL_2_PRESSED";
+	}
 }
 
 

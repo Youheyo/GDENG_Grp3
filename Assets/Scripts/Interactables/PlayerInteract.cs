@@ -17,7 +17,7 @@ public class PlayerInteract : MonoBehaviour
 
 		if(Physics.Raycast(transform.position, fwd, out hit, rayLength, layerMaskInteract))
 		{
-			if (hit.collider.CompareTag("interactable"))
+			if (hit.collider.CompareTag("Interactable"))
 			{
 				raycastedObj = hit.collider.gameObject;
 
@@ -25,7 +25,7 @@ public class PlayerInteract : MonoBehaviour
 				{
 					Debug.Log("Interacted with " + raycastedObj.name);
 					//raycastedObj.SetActive(false);
-					raycastedObj.GetComponent<ObjectInteracted>().onInteract();
+					raycastedObj.GetComponent<GoalNotesInteractable>().onInteract();
 				}
 			}
 		}
