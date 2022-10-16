@@ -23,10 +23,10 @@ public class MenuCube : MonoBehaviour
     private void evalScene(LevelSelect level) {
     	switch(level) {
     		case LevelSelect.MainMenu:
-    			sceneName = "SceneNames.MAIN_SCENE";
+    			sceneName = SceneNames.MAIN_SCENE;
     			break;
     		case LevelSelect.Level1:
-    			sceneName = "SceneNames.LEVEL_ONE";
+    			sceneName = SceneNames.LEVEL_ONE;
     			break;
     		default:
     			Debug.Log("[ERROR]");

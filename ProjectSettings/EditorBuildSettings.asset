@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HubScene.unity
     guid: 8e06d2e25965e157d9fc766050481635
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 95fb1f78481d54b7d8cd1055d3e55a48
   m_configObjects: {}
