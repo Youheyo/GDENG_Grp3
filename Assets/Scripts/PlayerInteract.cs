@@ -30,4 +30,12 @@ public class PlayerInteract : MonoBehaviour
 			}
 		}
     }
+
+	void OnDrawGizmosSelected()
+	{
+		// Draws a 5 unit long red line in front of the object
+		Gizmos.color = Color.red;
+		Vector3 direction = transform.TransformDirection(Vector3.forward) * rayLength;
+		Gizmos.DrawRay(transform.position, direction);
+	}
 }

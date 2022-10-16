@@ -14,7 +14,18 @@ public class ObjectInteracted : MonoBehaviour
 
 	private void Awake()
 	{
-		EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED, disableAffectedObject);
+		switch(this.name + "_PRESSED")
+		{
+			case EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED:
+				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED, disableAffectedObject);
+				break;
+			case EventNames.RPG_Level_Interactables.BUTTON_2_PRESSED:
+				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.BUTTON_2_PRESSED, disableAffectedObject);
+				break;
+			case EventNames.RPG_Level_Interactables.CHEST_1_PRESSED:
+				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.CHEST_1_PRESSED, disableAffectedObject);
+				break;
+		}
 	}
 
 	private void OnDestroy()

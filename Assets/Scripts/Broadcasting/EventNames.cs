@@ -16,6 +16,8 @@ public class EventNames {
 	public class RPG_Level_Interactables
 	{
 		public const string BUTTON_1_PRESSED = "BUTTON_1_PRESSED";
+		public const string BUTTON_2_PRESSED = "BUTTON_2_PRESSED";
+		public const string CHEST_1_PRESSED = "CHEST_1_PRESSED";
 	}
 }
 
