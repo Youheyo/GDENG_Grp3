@@ -6,10 +6,10 @@ public class GrabScript : MonoBehaviour
 {
    
     private RaycastHit hit;
+
     private GameObject grabbedObject;
     [Tooltip("Camera > GrabPos")]
     [SerializeField] Transform grabPos;
-
     [SerializeField] float followSpeed;
 
     [SerializeField] private Transform camera;
@@ -17,13 +17,13 @@ public class GrabScript : MonoBehaviour
     [SerializeField] private Transform player;
 
     [Tooltip("Must be same as: ReticleScript")]
-    [SerializeField] private float maxDistance = 20f;
+    [SerializeField] private float maxReach = 20f;
     // Update is called once per frame
     void Update()
     {
         Debug.Log(camera.transform.rotation.y);
         if (Input.GetMouseButtonDown(0) && 
-            Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) &&
+            Physics.Raycast(transform.position, transform.forward, out hit, maxReach) &&
             hit.transform.GetComponent <Rigidbody>() && 
             hit.transform.gameObject.CompareTag("Clutchable"))
         {

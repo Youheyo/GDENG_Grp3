@@ -12,7 +12,7 @@ public class ReticleScript : MonoBehaviour
     [SerializeField] private Color inactiveColor;
 
     [Tooltip("Must be same as: GrabScript")]
-    [SerializeField] private float maxDistance = 20f;
+    [SerializeField] private float maxReach = 20f;
 
     private void Start()
     {
@@ -23,7 +23,8 @@ public class ReticleScript : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) && hit.transform.gameObject.CompareTag("Clutchable"))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, maxReach) && 
+            hit.transform.gameObject.CompareTag("Clutchable"))
         {
             reticle.color = new Color(activeColor.r, activeColor.g, activeColor.b, activeColor.a);
         }
