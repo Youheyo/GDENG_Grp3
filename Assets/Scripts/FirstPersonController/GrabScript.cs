@@ -36,9 +36,10 @@ public class GrabScript : MonoBehaviour
 
         if (grabbedObject)
         {
-            grabbedObject.GetComponent<Rigidbody>().velocity = 20 * (grabPos.position - grabbedObject.transform.position);
+            grabbedObject.GetComponent<Rigidbody>().velocity = (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
         }
 
+        //Throw Grabbed Object
         if (grabbedObject && Input.GetMouseButtonDown(1))
         {
             grabbedObject.GetComponent<Rigidbody>().AddForce(camera.forward * 600);
