@@ -59,15 +59,15 @@ public class GrabScript : MonoBehaviour
             //grabbedObject.GetComponent<Outline>().OutlineColor = Color.blue;
             mouseImage.sprite = onGrabSprite;
             grabText.text = "Throw";
-            if(grabbedObject.GetComponent<Outline>().OutlineColor != Color.yellow)
-                grabbedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
+//            if(grabbedObject.GetComponent<Outline>().OutlineColor != Color.yellow)
+//                grabbedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
             grabbedObject.GetComponent<Rigidbody>().velocity = (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
             grabbedObject.GetComponent<Rigidbody>().freezeRotation = true;
         }
         else
         {
-            if (grabbedObject.GetComponent<Outline>().OutlineColor == Color.yellow)
-                grabbedObject.GetComponent<Outline>().OutlineColor = Color.white;
+//            if (grabbedObject.GetComponent<Outline>().OutlineColor == Color.yellow)
+ //               grabbedObject.GetComponent<Outline>().OutlineColor = Color.white;
             mouseImage.sprite = onReleaseSprite;
             grabText.text = "Pick-Up";
             grabbedObject.GetComponent<Outline>().enabled = false;

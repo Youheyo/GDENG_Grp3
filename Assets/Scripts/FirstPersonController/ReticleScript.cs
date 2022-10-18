@@ -40,8 +40,8 @@ public class ReticleScript : MonoBehaviour
 
             if(!hit.transform.gameObject.GetComponent<Outline>())
                 hit.transform.gameObject.AddComponent<Outline>();
-            else if (hit.transform.gameObject.GetComponent<Outline>().OutlineColor != releasedColor && !Input.GetMouseButton(0))
-                hit.transform.gameObject.GetComponent<Outline>().OutlineColor = releasedColor;
+ //           else if (hit.transform.gameObject.GetComponent<Outline>().OutlineColor != releasedColor && !Input.GetMouseButton(0))
+ //               hit.transform.gameObject.GetComponent<Outline>().OutlineColor = releasedColor;
 
 
                 if (!hit.transform.gameObject.GetComponent<outlinescript>())
