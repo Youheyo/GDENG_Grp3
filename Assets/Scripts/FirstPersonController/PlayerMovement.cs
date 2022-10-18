@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     Vector3 velocity;
-    bool isGrounded;
+    public bool isGrounded;
 
     public AudioClip footStepSound;
     public float footStepDelay;
