@@ -22,6 +22,7 @@ public class GoalNotesInteractable : MonoBehaviour
 	
 	private void winningCondition()
 	{
+		PlayerDataManager.notesFound++;
 		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 }
