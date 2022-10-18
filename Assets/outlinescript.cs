@@ -29,8 +29,8 @@ public class outlinescript : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
-//            if (hit.transform.GetComponent<Outline>().enabled) 
-//                this.GetComponent<Outline>().enabled = false;
+            if (hit.transform.GetComponent<Outline>().enabled) 
+                this.GetComponent<Outline>().enabled = false;
         }
 
 
@@ -40,12 +40,12 @@ public class outlinescript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-//        this.GetComponent<Outline>().OutlineWidth = 6.2f;
+        this.GetComponent<Outline>().OutlineWidth = 6.2f;
     }
 
     private void OnMouseExit()
     {
- //       this.GetComponent<Outline>().enabled = false;
+        this.GetComponent<Outline>().enabled = false;
     }
 
     private void OnMouseOver()

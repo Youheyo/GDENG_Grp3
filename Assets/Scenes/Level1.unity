@@ -6718,9 +6718,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 0ba3597ac23082b488ef480741812a95, type: 3}
     - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: grabbedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: grabbedColor.g
+      value: 0.52628785
+      objectReference: {fileID: 0}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: grabbedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
       propertyPath: onReleaseSprite
       value: 
       objectReference: {fileID: 21300000, guid: d0b30e1b0cc477c4b93095e9a717ed72, type: 3}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: releasedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: releasedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 593595538532748244, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: releasedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 593595538532748245, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
       propertyPath: grabText
       value: 

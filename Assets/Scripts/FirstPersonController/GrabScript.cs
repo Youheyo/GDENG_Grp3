@@ -38,8 +38,7 @@ public class GrabScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(camera.transform.rotation.y);
-        
+
         if (Input.GetMouseButtonDown(0) && 
             Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) &&
             hit.transform.GetComponent <Rigidbody>() && 
@@ -56,23 +55,23 @@ public class GrabScript : MonoBehaviour
         //Grab Object
         if (grabbedObject)
         {
-            //grabbedObject.GetComponent<Outline>().OutlineColor = Color.blue;
+            grabbedObject.GetComponent<Outline>().OutlineColor = Color.blue;
             mouseImage.sprite = onGrabSprite;
             grabText.text = "Throw";
-//            if(grabbedObject.GetComponent<Outline>().OutlineColor != Color.yellow)
-//                grabbedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
+            if(grabbedObject.GetComponent<Outline>().OutlineColor != Color.yellow)
+                grabbedObject.GetComponent<Outline>().OutlineColor = Color.yellow;
             grabbedObject.GetComponent<Rigidbody>().velocity = (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
             grabbedObject.GetComponent<Rigidbody>().freezeRotation = true;
         }
         else
         {
-//            if (grabbedObject.GetComponent<Outline>().OutlineColor == Color.yellow)
- //               grabbedObject.GetComponent<Outline>().OutlineColor = Color.white;
+            if (grabbedObject.GetComponent<Outline>().OutlineColor == Color.yellow)
+                grabbedObject.GetComponent<Outline>().OutlineColor = Color.white;
             mouseImage.sprite = onReleaseSprite;
             grabText.text = "Pick-Up";
             grabbedObject.GetComponent<Outline>().enabled = false;
-            //grabbedObject.GetComponent<Rigidbody>().freezeRotation = false;
-            //grabbedObject.GetComponent<Outline>().enabled = false;
+            grabbedObject.GetComponent<Rigidbody>().freezeRotation = false;
+            grabbedObject.GetComponent<Outline>().enabled = false;
         }
 
         //Throw Grabbed Object
@@ -96,7 +95,7 @@ public class GrabScript : MonoBehaviour
                            hit.transform.gameObject.CompareTag("Clutchable"))
         {
             hit.transform.GetComponent<Rigidbody>().AddForce(camera.forward * 600);
-            grabbedObject.GetComponent<Outline>().enabled = false;
+            //grabbedObject.GetComponent<Outline>().enabled = false;
         }
     }
 
