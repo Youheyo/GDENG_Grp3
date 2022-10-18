@@ -21,7 +21,7 @@ public class GrabScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(camera.transform.rotation.y);
+        //Debug.Log(camera.transform.rotation.y);
         if (Input.GetMouseButtonDown(0) && 
             Physics.Raycast(transform.position, transform.forward, out hit, maxReach) &&
             hit.transform.GetComponent <Rigidbody>() && 
