@@ -22,7 +22,9 @@ public class EventNames {
 	
 	public class Goal_Notes
 	{
+		public const string NOTE_PICKED_UP = "NOTE_PICKED_UP";
 		public const string LEVEL_1_PRESSED = "LEVEL_1_PRESSED";
+		public const string LEVEL_1_COMPLETE = "LEVEL_1_COMPLETE";
 		public const string LEVEL_2_PRESSED = "LEVEL_2_PRESSED";
 	}
 }
