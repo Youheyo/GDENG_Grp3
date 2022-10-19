@@ -8,10 +8,10 @@ public class GrabScript : MonoBehaviour
 {
    
     private RaycastHit hit;
+
     private GameObject grabbedObject;
     [Tooltip("Camera > GrabPos")]
     [SerializeField] Transform grabPos;
-
     [SerializeField] float followSpeed;
 
     [SerializeField] private Transform camera;
@@ -19,6 +19,7 @@ public class GrabScript : MonoBehaviour
     [SerializeField] private Transform player;
 
     [Tooltip("Must be same as: ReticleScript")]
+    [SerializeField] private float maxReach = 20f;
     [SerializeField] private float maxDistance = 20f;
 
     [SerializeField] private Image mouseImage;
@@ -38,9 +39,8 @@ public class GrabScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetMouseButtonDown(0) && 
-            Physics.Raycast(transform.position, transform.forward, out hit, maxDistance) &&
+            Physics.Raycast(transform.position, transform.forward, out hit, maxReach) &&
             hit.transform.GetComponent <Rigidbody>() && 
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
@@ -55,6 +55,7 @@ public class GrabScript : MonoBehaviour
         //Grab Object
         if (grabbedObject)
         {
+            grabbedObject.GetComponent<Rigidbody>().velocity = (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
             grabbedObject.GetComponent<Outline>().OutlineColor = Color.blue;
             mouseImage.sprite = onGrabSprite;
             grabText.text = "Throw";
@@ -72,7 +73,6 @@ public class GrabScript : MonoBehaviour
             grabbedObject.GetComponent<Outline>().enabled = false;
             grabbedObject.GetComponent<Rigidbody>().freezeRotation = false;
             grabbedObject.GetComponent<Outline>().enabled = false;
-        }
 
         //Throw Grabbed Object
         if (grabbedObject && Input.GetMouseButtonDown(1))
@@ -98,7 +98,5 @@ public class GrabScript : MonoBehaviour
             //grabbedObject.GetComponent<Outline>().enabled = false;
         }
     }
-
-
-
+    }
 }
