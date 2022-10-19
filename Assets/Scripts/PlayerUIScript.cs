@@ -11,7 +11,8 @@ public class PlayerUIScript : MonoBehaviour
 	[SerializeField] private GameObject menuPanel;
 	[SerializeField] private Button resumeButton;
 	[SerializeField] private Button quitButton;
-	
+
+	private int noteCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,20 @@ public class PlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		noteCountText.text = "Notes found: " + PlayerDataManager.notesFound.ToString();
+		switch (SceneManager.GetActiveScene().name)
+		{
+			case "Level1":
+				noteCount = PlayerDataManager.notesFoundLevel1;
+				break;
+			case "Level2":
+				noteCount = PlayerDataManager.notesFoundLevel2;
+				break;
+			case "Level3":
+				noteCount = PlayerDataManager.notesFoundLevel3;
+				break;
+			
+		}
+		noteCountText.text = "Notes found: " + noteCount.ToString();
 		if (Input.GetButtonDown("Cancel"))
 		//if(Input.GetKeyDown(KeyCode.Q))
 		{

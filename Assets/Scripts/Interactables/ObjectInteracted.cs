@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectInteracted : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class ObjectInteracted : MonoBehaviour
 	{
 		EventBroadcaster.Instance.PostEvent(objName + "_PRESSED");
 		Debug.Log(objName + "_PRESSED");
+		if(objName == "NOTE")
+		{
+			this.NotePickUp();
+		}
 	}
 
 	private void Awake()
@@ -19,7 +24,7 @@ public class ObjectInteracted : MonoBehaviour
 		if(objName.Length <= 0) {
 			objName = this.name;
 		}
-		switch(this.name + "_PRESSED")
+		switch(this.objName + "_PRESSED")
 		{
 			case EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED:
 				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED, disableAffectedObject);
@@ -29,9 +34,6 @@ public class ObjectInteracted : MonoBehaviour
 				break;
 			case EventNames.RPG_Level_Interactables.CHEST_1_PRESSED:
 				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.CHEST_1_PRESSED, disableAffectedObject);
-				break;
-			case EventNames.Goal_Notes.LEVEL_1_PRESSED:
-				EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_PRESSED, winningCondition);
 				break;
 		}
 	}
@@ -46,6 +48,31 @@ public class ObjectInteracted : MonoBehaviour
 	private void disableAffectedObject()
 	{
 		affectedObject.SetActive(!affectedObject.activeSelf);
+	}
+
+	private void NotePickUp()
+	{
+		Debug.Log(SceneManager.GetActiveScene().name);
+		switch(SceneManager.GetActiveScene().name)
+		{
+			case "Level1":
+				Debug.Log("Found note for level 1");
+				PlayerDataManager.notesFoundLevel1++;
+				this.gameObject.SetActive(false);
+				if (PlayerDataManager.notesFoundLevel1 == 7) winningCondition();
+				break;
+			case "level2":
+				PlayerDataManager.notesFoundLevel2++;
+				if (PlayerDataManager.notesFoundLevel2 == 7) winningCondition();
+				break;
+			case "level3":
+				PlayerDataManager.notesFoundLevel3++;
+				if (PlayerDataManager.notesFoundLevel3 == 7) winningCondition();
+				break;
+			default:
+				Debug.Log("Level not found, unable to add to note count");
+				break;
+		}
 	}
 	
 	private void winningCondition()
