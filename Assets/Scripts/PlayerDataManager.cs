@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class PlayerDataManager 
 {
-	public static int notesFound { get; set; }
+	public static int notesFoundLevel1 { get; set; }
+	public static int notesFoundLevel2 { get; set; }
+	public static int notesFoundLevel3 { get; set; }
 }

@@ -578,6 +578,7 @@ MonoBehaviour:
   followSpeed: 20
   camera: {fileID: 593595538532748243}
   player: {fileID: 593595539190008143}
+  maxReach: 20
   maxDistance: 3
   mouseImage: {fileID: 0}
   onGrabSprite: {fileID: 0}
@@ -604,7 +605,7 @@ MonoBehaviour:
   activeColor: {r: 0, g: 0.7882353, b: 0, a: 0.39215687}
   inactiveColor: {r: 1, g: 0, b: 0, a: 0.39215687}
   releasedColor: {r: 0, g: 0, b: 0, a: 0}
-  maxDistance: 3
+  maxReach: 20
 --- !u!114 &6748368456399680754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +621,7 @@ MonoBehaviour:
   rayLength: 10
   layerMaskInteract:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 193
 --- !u!1 &593595538584117984
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,10 +722,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 593595539190008142}
+  groundCheck: {fileID: 593595538584117985}
   speed: 12
   gravity: -180
   jumpHeight: 3
-  groundCheck: {fileID: 593595538584117985}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
