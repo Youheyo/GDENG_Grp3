@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class outlinescript : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
+    [SerializeField] private new Camera camera;
     private RaycastHit hit;
 
     private GameObject gameobj;
