@@ -558,6 +558,7 @@ GameObject:
   - component: {fileID: 4274975753821508211}
   - component: {fileID: 4274975753821508212}
   - component: {fileID: 4274975753821508201}
+  - component: {fileID: 7875280154297891873}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -704,6 +705,21 @@ MonoBehaviour:
   camera: {fileID: 3706212024090047709}
   activeColor: {r: 1, g: 0.6509804, b: 0, a: 1}
   inactiveColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &7875280154297891873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706212024473499230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf92f17ddf864a949997da1b503604bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlightObject: {fileID: 5274700310453386279}
+  flashlightOn: {fileID: 8850255473434334898}
+  flashlightOff: {fileID: 2782815858936999077}
 --- !u!1 &3706212025296061296
 GameObject:
   m_ObjectHideFlags: 0

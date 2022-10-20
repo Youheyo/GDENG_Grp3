@@ -26,7 +26,6 @@ public class GrabScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(camera.transform.rotation.y);
         if (Input.GetMouseButtonDown(0) && 
             Physics.Raycast(camera.position, camera.forward, out hit, maxReach) &&
             hit.transform.GetComponent <Rigidbody>() && 
@@ -43,12 +42,14 @@ public class GrabScript : MonoBehaviour
         {
             grabbedObject.GetComponent<Rigidbody>().velocity = 
                 (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
+            grabbedObject.GetComponent<Rigidbody>().freezeRotation = true;
         }
 
         //Throw Grabbed Object
         if (grabbedObject && Input.GetMouseButtonDown(1))
         {
             grabbedObject.GetComponent<Rigidbody>().AddForce(camera.forward * 600);
+            grabbedObject.GetComponent<Rigidbody>().freezeRotation = false;
             grabbedObject = null;
         }
 
