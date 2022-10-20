@@ -19,7 +19,7 @@ public class ObjectInteracted : MonoBehaviour
 		}
 	}
 
-	private void Awake()
+	void Awake()
 	{
 		if(objName.Length <= 0) {
 			objName = this.name;
@@ -36,13 +36,17 @@ public class ObjectInteracted : MonoBehaviour
 				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.CHEST_1_PRESSED, disableAffectedObject);
 				break;
 		}
+
+		// Debug, should be removed later 
+		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, winningCondition);
 	}
 
 	private void OnDestroy()
 	{
 	// Either replace with RemoveAllObserver (or whatever that sounded familiar with it
 	// or refactor so that observers could be removed properly.
-        EventBroadcaster.Instance.RemoveObserver(EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED);
+	Debug.Log("[EVENT DEBUG] - DESTROYED");
+	EventBroadcaster.Instance.RemoveAllObservers();
 	}
 	
 	private void disableAffectedObject()
@@ -75,9 +79,8 @@ public class ObjectInteracted : MonoBehaviour
 		}
 	}
 	
-	private void winningCondition()
+	public void winningCondition()
 	{
-		//PlayerDataManager.notesFound++;
 		Debug.Log("Should be returning to hub scene");
 		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}

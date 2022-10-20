@@ -33,5 +33,14 @@ public class GameManager : MonoBehaviour
 	sharedInstance = this;
     	DontDestroyOnLoad(gameObject);
     }
+
+    // Functions added here should only be done if something needs to be checked every frame
+    // Unless for debug purposes, do not add anything else here.
+    void Update(){
+	if (Input.GetKeyDown(KeyCode.P)) {
+		Debug.Log("[DEBUG] - Instant complete");
+		EventBroadcaster.Instance.PostEvent(EventNames.Goal_Notes.LEVEL_1_COMPLETE);
+	}
+    }
     
 }
