@@ -38,7 +38,7 @@ public class ObjectInteracted : MonoBehaviour
 		}
 
 		// Debug, should be removed later 
-		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, winningCondition);
+		//EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, winningCondition);
 	}
 
 	private void OnDestroy()
