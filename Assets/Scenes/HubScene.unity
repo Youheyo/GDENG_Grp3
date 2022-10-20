@@ -599,6 +599,21 @@ MonoBehaviour:
   throwPanel: {fileID: 893739994}
   pushPanel: {fileID: 1096009971}
   interactPanel: {fileID: 1284367845}
+--- !u!114 &78680272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78680260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb8df10909245240bc4dc29b182fa7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 2085550302}
+  activeColor: {r: 1, g: 0.6509804, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &110771917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2432,6 +2447,11 @@ Transform:
 --- !u!4 &2085550300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 593595538532748243, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+  m_PrefabInstance: {fileID: 32226730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &2085550302 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 593595538532748238, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
   m_PrefabInstance: {fileID: 32226730}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2087617069 stripped

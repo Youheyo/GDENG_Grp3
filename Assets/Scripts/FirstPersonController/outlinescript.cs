@@ -28,11 +28,17 @@ public class outlinescript : MonoBehaviour
     {
 
 
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 3f) &&
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 20f) &&
             hit.transform.GetComponent<Rigidbody>() &&
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
             gameobj = hit.transform.gameObject;
+            //if (gameobj.GetComponent<Outline>() == null)
+            //{
+            //    gameobj.AddComponent<Outline>();
+            //    Debug.Log($"given Outline to: {gameobj.name}");
+            //}
+
 
             if (Input.GetMouseButton(0))
             {
