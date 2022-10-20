@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class outlinescript : MonoBehaviour
@@ -8,7 +9,14 @@ public class outlinescript : MonoBehaviour
     private RaycastHit hit;
 
     private GameObject gameobj;
-    // Start is called before the first frame update
+
+
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color inactiveColor;
+
+
+
+
     void Awake()
     {
         camera = Camera.main;
@@ -25,6 +33,11 @@ public class outlinescript : MonoBehaviour
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
             gameobj = hit.transform.gameObject;
+
+            if (Input.GetMouseButton(0))
+            {
+                gameobj.GetComponent<Outline>().OutlineColor = activeColor;
+            }
         }
 
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
@@ -40,12 +53,17 @@ public class outlinescript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        this.GetComponent<Outline>().OutlineWidth = 6.2f;
+        this.GetComponent<Outline>().enabled = true;
+        this.GetComponent<Outline>().OutlineWidth = 6.5f;
+        this.GetComponent<Outline>().OutlineColor = inactiveColor;
     }
 
     private void OnMouseExit()
     {
+
         this.GetComponent<Outline>().enabled = false;
+
+
     }
 
     private void OnMouseOver()

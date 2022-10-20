@@ -7,7 +7,7 @@ public class ReticleScript : MonoBehaviour
 {
 
     [Tooltip("Camera > CameraUI > Reticle")] 
-    [SerializeField] private Transform camera;
+    [SerializeField] private new Transform camera;
     [SerializeField] private Image reticle;
     [SerializeField] private Color activeColor;
     [SerializeField] private Color inactiveColor;

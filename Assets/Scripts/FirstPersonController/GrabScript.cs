@@ -8,14 +8,14 @@ public class GrabScript : MonoBehaviour
 
     private GameObject grabbedObject;
 
-    [Tooltip("(Camera > GrabPos)")]
-    [SerializeField] private Transform grabPos;
+    [Tooltip("(Player)")]
+    [SerializeField] private Transform player;
 
     [Tooltip("(Camera)")]
     [SerializeField] private new Transform camera;
 
-    [Tooltip("(Player)")]
-    [SerializeField] private Transform player;
+    [Tooltip("(Camera > GrabPos)")]
+    [SerializeField] private Transform grabPos;
 
     [Tooltip("Must be same as: ReticleScript")]
     [SerializeField] private float maxReach = 20f;
@@ -41,7 +41,8 @@ public class GrabScript : MonoBehaviour
 
         if (grabbedObject)
         {
-            grabbedObject.GetComponent<Rigidbody>().velocity = (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
+            grabbedObject.GetComponent<Rigidbody>().velocity = 
+                (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
         }
 
         //Throw Grabbed Object
@@ -49,6 +50,15 @@ public class GrabScript : MonoBehaviour
         {
             grabbedObject.GetComponent<Rigidbody>().AddForce(camera.forward * 600);
             grabbedObject = null;
+        }
+
+        //Push object
+        if (grabbedObject == null && Input.GetMouseButtonDown(1) && 
+            Physics.Raycast(camera.position, camera.forward, out hit, maxReach) &&
+            hit.transform.GetComponent<Rigidbody>() &&
+            hit.transform.gameObject.CompareTag("Clutchable"))
+        {
+            hit.transform.GetComponent<Rigidbody>().AddForce(camera.forward*10, ForceMode.Impulse);
         }
     }
 }
