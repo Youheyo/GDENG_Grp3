@@ -6,7 +6,7 @@ public class CameraUIScript : MonoBehaviour
 {
     private RaycastHit hit;
 
-    private GameObject grabbedObject;
+    private GameObject lookedObject;
 
     [Tooltip("(Camera)")]
     [SerializeField] private new Transform camera;
@@ -27,26 +27,37 @@ public class CameraUIScript : MonoBehaviour
         //Looked
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxReach) &&
             hit.transform.GetComponent<Rigidbody>() &&
-            hit.transform.gameObject.CompareTag("Clutchable"))
+            hit.transform.gameObject.CompareTag("Clutchable") || hit.transform.gameObject.CompareTag("Interactable"))
         {
-            grabbedObject = hit.transform.gameObject;
+            lookedObject = hit.transform.gameObject;
         }
         //Away
-        else if (Input.GetMouseButtonUp(0))
+        else
         {
-            grabbedObject = null;
+            lookedObject = null;
         }
 
         //if looking at object
-        if (grabbedObject != null)
+        if (lookedObject != null)
         {
-            grabPanel.SetActive(true);            
-            throwPanel.SetActive(false);
-            pushPanel.SetActive(true);
-            interactPanel.SetActive(false);
+            if (lookedObject.transform.CompareTag("Clutchable"))
+            {
+                grabPanel.SetActive(true);            
+                throwPanel.SetActive(false);
+                pushPanel.SetActive(true);
+                interactPanel.SetActive(false);
+            }
+            if (lookedObject.transform.CompareTag("Interactable"))
+            {
+                grabPanel.SetActive(false);
+                throwPanel.SetActive(false);
+                pushPanel.SetActive(false);
+                interactPanel.SetActive(true);
+            }
+
         }
         //if not looking at object
-        if (grabbedObject == null)
+        if (lookedObject == null)
         {
             grabPanel.SetActive(false);
             throwPanel.SetActive(false);
@@ -55,12 +66,15 @@ public class CameraUIScript : MonoBehaviour
         }
 
         //if grabbing the object
-        if (grabbedObject != null && Input.GetMouseButton(0))
+        if (lookedObject != null && Input.GetMouseButton(0))
         {
+            if (lookedObject.transform.CompareTag("Clutchable"))
+            {
             grabPanel.SetActive(false);
             throwPanel.SetActive(true);
             pushPanel.SetActive(false);
             interactPanel.SetActive(false);
+            }
         }
 
 

@@ -27,10 +27,34 @@ public class ReticleScript : MonoBehaviour
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxReach) && 
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
-            reticle.color = new Color(activeColor.r, activeColor.g, activeColor.b, activeColor.a);
+            if (!hit.transform.gameObject.GetComponent<Outline>())
+                hit.transform.gameObject.AddComponent<Outline>();
+            else if (hit.transform.gameObject.GetComponent<Outline>().OutlineColor != inactiveColor && !Input.GetMouseButton(0))
+                hit.transform.gameObject.GetComponent<Outline>().OutlineColor = inactiveColor;
+
+
+            if (!hit.transform.gameObject.GetComponent<outlinescript>())
+                hit.transform.gameObject.AddComponent<outlinescript>();
+
+            if (!hit.transform.gameObject.GetComponent<Outline>().enabled)
+                hit.transform.gameObject.GetComponent<Outline>().enabled = true;
+
+            hit.transform.gameObject.GetComponent<Outline>().OutlineWidth = 11f;
+
+            if (Input.GetMouseButton(0))
+            {
+                hit.transform.gameObject.GetComponent<Outline>().OutlineColor = activeColor;
+            }
+            else
+            {
+                hit.transform.gameObject.GetComponent<Outline>().OutlineColor = inactiveColor;
+            }
+
         }
         else
         {
+
+            hit.transform.gameObject.GetComponent<Outline>().enabled = false;
             reticle.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, inactiveColor.a);
         }
     }

@@ -33,17 +33,7 @@ public class outlinescript : MonoBehaviour
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
             gameobj = hit.transform.gameObject;
-            //if (gameobj.GetComponent<Outline>() == null)
-            //{
-            //    gameobj.AddComponent<Outline>();
-            //    Debug.Log($"given Outline to: {gameobj.name}");
-            //}
 
-
-            if (Input.GetMouseButton(0))
-            {
-                gameobj.GetComponent<Outline>().OutlineColor = activeColor;
-            }
         }
 
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
