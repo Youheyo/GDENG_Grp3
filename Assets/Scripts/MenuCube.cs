@@ -6,7 +6,9 @@ public class MenuCube : MonoBehaviour
 {
     public enum LevelSelect {
     	MainMenu,
-    	Level1
+    	Level1,
+	Level2,
+	Level3
     }
     public LevelSelect lvlSel;
     private string sceneName;
@@ -28,6 +30,11 @@ public class MenuCube : MonoBehaviour
     		case LevelSelect.Level1:
     			sceneName = SceneNames.LEVEL_ONE;
     			break;
+		case LevelSelect.Level2:
+			sceneName = SceneNames.LEVEL_TWO;
+			break;
+		case LevelSelect.Level3:
+			break;
     		default:
     			Debug.Log("[ERROR]");
     			break;

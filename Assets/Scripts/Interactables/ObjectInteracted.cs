@@ -61,11 +61,11 @@ public class ObjectInteracted : MonoBehaviour
 				this.gameObject.SetActive(false);
 				if (PlayerDataManager.notesFoundLevel1 == 7) winningCondition();
 				break;
-			case "level2":
+			case "Level2":
 				PlayerDataManager.notesFoundLevel2++;
 				if (PlayerDataManager.notesFoundLevel2 == 7) winningCondition();
 				break;
-			case "level3":
+			case "Level3":
 				PlayerDataManager.notesFoundLevel3++;
 				if (PlayerDataManager.notesFoundLevel3 == 7) winningCondition();
 				break;
