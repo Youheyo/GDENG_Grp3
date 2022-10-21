@@ -12,10 +12,16 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float mouseSensitivity = 300f;
     private float xRotation = 0f;
 
+
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     // Update is called once per frame

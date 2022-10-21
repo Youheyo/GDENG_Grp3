@@ -9,6 +9,7 @@ public class MainMenuHandler : MonoBehaviour
     }
     public void playBtn() {
     	LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
+        Time.timeScale = 1;
     }
     
     public void quitBtn() {

@@ -29,6 +29,7 @@ public class CameraUIScript : MonoBehaviour
             hit.transform.GetComponent<Rigidbody>() &&
             hit.transform.gameObject.CompareTag("Clutchable") || hit.transform.gameObject.CompareTag("Interactable"))
         {
+            lookedObject = null;
             lookedObject = hit.transform.gameObject;
         }
         //Away

@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlashlightScript : MonoBehaviour
 {
-    private bool flashlightState;
-    [SerializeField] private GameObject flashlightObject;
+    private bool flashlightState;    
     private bool onCooldown;
+
+    [SerializeField] private Color flashlightColor;
+    [SerializeField] private Sprite flashlightOnSprite;
+    [SerializeField] private Sprite flashlightOffSprite;
+    [SerializeField] private Image flashlightIndicator;
+    [SerializeField] private GameObject flashlightObject;
     [SerializeField] private AudioSource flashlightOn;
     [SerializeField] private AudioSource flashlightOff;
 
@@ -15,6 +21,8 @@ public class FlashlightScript : MonoBehaviour
     {
         this.flashlightState = false;
         this.onCooldown = false;
+        this.flashlightObject.GetComponent<Light>().color = flashlightColor;
+        this.flashlightIndicator.sprite = flashlightOffSprite;
     }
 
     // Update is called once per frame
@@ -28,12 +36,19 @@ public class FlashlightScript : MonoBehaviour
             flashlightObject.SetActive(flashlightState);
 
             if (flashlightState == false)
+            {
                 flashlightOff.Play();
+                this.flashlightIndicator.sprite = flashlightOffSprite;
+            }
 
             StartCoroutine(FlashlightCooldown());
 
             if (flashlightState == true)
+            {
                 flashlightOn.Play();
+                this.flashlightIndicator.sprite = flashlightOnSprite;
+            }
+
         }
     }
 
