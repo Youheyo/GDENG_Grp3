@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform groundCheck;
-    [SerializeField] private float speed = 12f;
+    [SerializeField] private float speed = 6f;
+    [SerializeField] private float sprintMultiplier = 2f;
     //[SerializeField] private float gravity = -9.81f;
     [SerializeField] private float gravity = -120;
     [SerializeField] private float jumpHeight = 3f;
@@ -40,7 +41,16 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(move * speed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            controller.Move(move * (speed * sprintMultiplier) * Time.deltaTime);
+        }
+        else //SPRINT
+        {
+            controller.Move(move * speed * Time.deltaTime);
+        }
+
+        
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
