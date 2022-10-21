@@ -25,7 +25,7 @@ public class IdenticalObjectDetection : MonoBehaviour
 	private void checkObjective()
 	{
 		Debug.Log("Checking puzzle Reqs");
-		if(ObjectList.Count == reqObjectCount)
+		if(this.ObjectList.Count == reqObjectCount)
 		{
 			Debug.Log("ROOM 1 puzzle COMPLETED");
 			EventBroadcaster.Instance.PostEvent(EventNames.Goal_Notes.LEVEL_3_ROOM_1_COMPLETE);
