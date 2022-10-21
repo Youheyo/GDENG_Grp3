@@ -46,7 +46,7 @@ public class ObjectInteracted : MonoBehaviour
 	// Either replace with RemoveAllObserver (or whatever that sounded familiar with it
 	// or refactor so that observers could be removed properly.
 	Debug.Log("[EVENT DEBUG] - DESTROYED");
-	EventBroadcaster.Instance.RemoveAllObservers();
+	//EventBroadcaster.Instance.RemoveAllObservers();
 	}
 	
 	private void disableAffectedObject()
