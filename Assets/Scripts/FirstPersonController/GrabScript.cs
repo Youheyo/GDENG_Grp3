@@ -40,6 +40,7 @@ public class GrabScript : MonoBehaviour
 
         if (grabbedObject)
         {
+            grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
             grabbedObject.GetComponent<Rigidbody>().velocity = 
                 (20 / grabbedObject.GetComponent<Rigidbody>().mass) * (grabPos.position - grabbedObject.transform.position);
             grabbedObject.GetComponent<Rigidbody>().freezeRotation = true;
