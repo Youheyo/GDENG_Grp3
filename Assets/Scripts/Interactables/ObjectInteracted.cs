@@ -81,7 +81,8 @@ public class ObjectInteracted : MonoBehaviour
 	
 	public void winningCondition()
 	{
-		Debug.Log("Should be returning to hub scene");
-		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
+		EventBroadcaster.Instance.PostEvent(EventNames.Goal_Notes.LEVEL_1_COMPLETE);
+		//Debug.Log("Should be returning to hub scene");
+		//LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 }

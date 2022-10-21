@@ -18,7 +18,7 @@ public class PlayerUIScript : MonoBehaviour
 	void Awake() {
 		if(SceneManager.GetActiveScene().name != "MainMenu" ||
 		SceneManager.GetActiveScene().name != "HubScene") {
-			EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, LevelComplete);
+		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, tempWin);
 		}
 	}
 
@@ -79,6 +79,22 @@ public class PlayerUIScript : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 
 		}
+	}
+
+	// This is a debug function
+	// should load levelComplete instead
+	// if there are other functionality to implement
+	// either add to levelComplete function 
+	// or on the goToHub button, whichever
+	// or however winning will be implemented.
+	public void tempWin() {
+		// There should be a post event here indicating
+		// that specific level has been finished or use the 
+		// gameManager directly to modify a variable
+		// indicating level has been finished
+		// so that we dont have to make 3 copies of the same
+		// function just to clarify the level is finished
+		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 
 	public void LevelComplete() {
