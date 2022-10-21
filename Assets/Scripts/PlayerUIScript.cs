@@ -11,8 +11,28 @@ public class PlayerUIScript : MonoBehaviour
 	[SerializeField] private GameObject menuPanel;
 	[SerializeField] private Button resumeButton;
 	[SerializeField] private Button quitButton;
+	[SerializeField] private GameObject completePanel;
 
 	private int noteCount = 0;
+
+	void Awake() {
+		if(SceneManager.GetActiveScene().name != "MainMenu" ||
+		SceneManager.GetActiveScene().name != "HubScene") {
+		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, tempWin);
+		}
+	}
+
+	private void OnDestroy() {
+	// [NOTE] If truly using this (playerUI) script to add events 
+	// or adding events on another script instead
+	// please remember to properly remove observers. If
+	// you encounter a bug that your object is destroyed 
+	// yet you're absolutely certain that the reference/object 
+	// exists then try to consider that the observer might
+	// be conflicting itself.
+	Debug.Log("[PLAYER EVENT DEBUG] - DESTROYED");
+	EventBroadcaster.Instance.RemoveObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE);
+	}
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +81,45 @@ public class PlayerUIScript : MonoBehaviour
 		}
 	}
 
+	// This is a debug function
+	// should load levelComplete instead
+	// if there are other functionality to implement
+	// either add to levelComplete function 
+	// or on the goToHub button, whichever
+	// or however winning will be implemented.
+	public void tempWin() {
+		// There should be a post event here indicating
+		// that specific level has been finished or use the 
+		// gameManager directly to modify a variable
+		// indicating level has been finished
+		// so that we dont have to make 3 copies of the same
+		// function just to clarify the level is finished
+		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
+	}
+
+	public void LevelComplete() {
+		if(completePanel.gameObject == null) {
+			Debug.Log("Somehow completePanel is null");
+			Debug.Log(completePanel);
+			Transform panel = transform.Find("LevelCompletePanel");
+			Debug.Log("Found: " + panel);
+		}
+		completePanel.SetActive(!completePanel.activeSelf);
+		if (completePanel.activeSelf)
+		{
+			Time.timeScale = 0.0f;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.None;
+		}
+		else
+		{
+			Time.timeScale = 1.0f;
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+
+		}
+	}
+
 	public void resumeGame()
 	{
 		Time.timeScale = 1.0f;
@@ -72,7 +131,11 @@ public class PlayerUIScript : MonoBehaviour
 
 	public void GoToMainMenu()
 	{
-		SceneManager.LoadScene(0);
+		LoadManager.Instance.LoadScene(SceneNames.MAIN_SCENE, false);
+	}
+
+	public void GoToHub() {
+		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 
 }
