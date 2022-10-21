@@ -27,6 +27,9 @@ public class EventNames {
 		public const string LEVEL_1_PRESSED = "LEVEL_1_PRESSED";
 		public const string LEVEL_1_COMPLETE = "LEVEL_1_COMPLETE";
 		public const string LEVEL_2_PRESSED = "LEVEL_2_PRESSED";
+
+		public const string LEVEL_3_ROOM_1_COMPLETE = "LEVEL_3_ROOM_1_COMPLETE";
+		public const string LEVEL_3_ROOM_2_COMPLETE = "LEVEL_3_ROOM_2_COMPLETE";
 	}
 }
 
