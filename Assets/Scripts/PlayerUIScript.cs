@@ -128,7 +128,7 @@ public class PlayerUIScript : MonoBehaviour
 		Time.timeScale = 1.0f;
 		menuPanel.SetActive(false);
 		Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.None;
+		Cursor.lockState = CursorLockMode.Locked;
 
 	}
 
