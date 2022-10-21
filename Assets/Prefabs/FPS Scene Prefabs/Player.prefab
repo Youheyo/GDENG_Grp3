@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77f04903711a9b44a024439777993c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashlightColor: {r: 0, g: 0, b: 0, a: 0}
+  flashlightColor: {r: 1, g: 0.94509804, b: 0.63529414, a: 0}
   flashlightOnSprite: {fileID: 21300000, guid: cdb0e307115d48542a996a38d6035357, type: 3}
   flashlightOffSprite: {fileID: 21300000, guid: 974e931a3fc3d234c948e3f839e8f9db, type: 3}
   flashlightIndicator: {fileID: 5236351903662729791}

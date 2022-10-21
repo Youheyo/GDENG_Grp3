@@ -34,6 +34,7 @@ public class MenuCube : MonoBehaviour
 			sceneName = SceneNames.LEVEL_TWO;
 			break;
 		case LevelSelect.Level3:
+			sceneName = SceneNames.LEVEL_THREE;
 			break;
     		default:
     			Debug.Log("[ERROR]");
