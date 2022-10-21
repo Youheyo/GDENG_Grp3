@@ -28,6 +28,10 @@ public class EventNames {
 		public const string LEVEL_1_COMPLETE = "LEVEL_1_COMPLETE";
 		public const string LEVEL_2_PRESSED = "LEVEL_2_PRESSED";
 	}
+
+	public class Flags {
+		public const string LEVEL_COMPLETED = "LEVEL_COMPLETED";
+	}
 }
 
 
