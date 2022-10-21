@@ -94,6 +94,9 @@ public class PlayerUIScript : MonoBehaviour
 		// indicating level has been finished
 		// so that we dont have to make 3 copies of the same
 		// function just to clarify the level is finished
+		Parameters param = new Parameters();
+		param.PutExtra("levelName", SceneManager.GetActiveScene().name);
+		EventBroadcaster.Instance.PostEvent(EventNames.Flags.LEVEL_COMPLETED, param);
 		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 

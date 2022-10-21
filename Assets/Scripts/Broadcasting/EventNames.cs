@@ -31,6 +31,10 @@ public class EventNames {
 		public const string LEVEL_3_ROOM_1_COMPLETE = "LEVEL_3_ROOM_1_COMPLETE";
 		public const string LEVEL_3_ROOM_2_COMPLETE = "LEVEL_3_ROOM_2_COMPLETE";
 	}
+
+	public class Flags {
+		public const string LEVEL_COMPLETED = "LEVEL_COMPLETED";
+	}
 }
 
 
