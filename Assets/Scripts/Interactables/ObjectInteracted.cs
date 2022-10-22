@@ -24,6 +24,7 @@ public class ObjectInteracted : MonoBehaviour
 		if(objName.Length <= 0) {
 			objName = this.name;
 		}
+		/*
 		switch(this.objName + "_PRESSED")
 		{
 			case EventNames.RPG_Level_Interactables.BUTTON_1_PRESSED:
@@ -36,6 +37,7 @@ public class ObjectInteracted : MonoBehaviour
 				EventBroadcaster.Instance.AddObserver(EventNames.RPG_Level_Interactables.CHEST_1_PRESSED, disableAffectedObject);
 				break;
 		}
+		*/
 
 		// Debug, should be removed later 
 		//EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, winningCondition);
@@ -56,7 +58,7 @@ public class ObjectInteracted : MonoBehaviour
 
 	private void NotePickUp()
 	{
-		Debug.Log(SceneManager.GetActiveScene().name);
+		//Debug.Log(SceneManager.GetActiveScene().name);
 		switch(SceneManager.GetActiveScene().name)
 		{
 			case "Level1":

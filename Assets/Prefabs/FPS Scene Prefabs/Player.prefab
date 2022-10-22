@@ -844,7 +844,7 @@ MonoBehaviour:
   speed: 6
   sprintMultiplier: 2
   gravity: -9.81
-  jumpHeight: 2
+  jumpHeight: 2.5
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
