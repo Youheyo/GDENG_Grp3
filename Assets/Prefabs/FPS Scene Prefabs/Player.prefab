@@ -733,7 +733,7 @@ MonoBehaviour:
   rayLength: 10
   layerMaskInteract:
     serializedVersion: 2
-    m_Bits: 193
+    m_Bits: 128
 --- !u!1 &593595538584117984
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +932,7 @@ MonoBehaviour:
   activeColor: {r: 1, g: 0.55825317, b: 0, a: 0.78431374}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   maxReach: 3
+  hitObj: {fileID: 0}
 --- !u!114 &3448502430718305770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,6 +951,7 @@ MonoBehaviour:
   throwPanel: {fileID: 6537138716398343202}
   pushPanel: {fileID: 8542283019280951887}
   interactPanel: {fileID: 7632196672187802428}
+  holdingObject: 0
 --- !u!114 &4713255175097956198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,8 +965,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 593595538532748238}
+  gameobj: {fileID: 0}
   activeColor: {r: 1, g: 0.5568628, b: 0, a: 0.78431374}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &4949275815652507272
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class PlayerInteract : MonoBehaviour
 				{
 					Debug.Log("Interacted with " + raycastedObj.name);
 					//raycastedObj.SetActive(false);
+					if(raycastedObj != null)
 					raycastedObj.GetComponent<ObjectInteracted>().onInteract();
 				}
 			//}
