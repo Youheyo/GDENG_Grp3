@@ -14,6 +14,8 @@ public class HubHandler : MonoBehaviour
 	[SerializeField] private GameObject lvl3Gate; //Replace with a group similar to EndIsland if there's any other ideas.
 
 	void Awake() {
+		// Assures that the game should be running when scene loads
+		Time.timeScale = 1;
 		Debug.Log("Value: " + GameManager.Instance.getL3());
 		UnlockEnd();
 		Unlocklvl3();

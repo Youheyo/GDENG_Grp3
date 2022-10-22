@@ -44,4 +44,11 @@ public class LoadManager {
 
 		SceneManager.LoadScene (name, LoadSceneMode.Additive);
 	}
+
+	/// <summary>
+	/// Returns Scene Name
+	/// </summary>
+	public string GetSceneName() {
+		return SceneManager.GetActiveScene().name;	
+	}
 }

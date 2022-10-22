@@ -22,14 +22,19 @@ public class EventNames {
 	
 	public class Goal_Notes
 	{
-		public const string NOTE_PICKED_UP = "NOTE_PICKED_UP";
-		public const string NOTE_PRESSED = "NOTE_PRESSED";
+		public const string SHOW_COMPLETE_PANEL = "SHOW_COMPLETE_PANEL";
 		public const string LEVEL_1_PRESSED = "LEVEL_1_PRESSED";
 		public const string LEVEL_1_COMPLETE = "LEVEL_1_COMPLETE";
 		public const string LEVEL_2_PRESSED = "LEVEL_2_PRESSED";
 
 		public const string LEVEL_3_ROOM_1_COMPLETE = "LEVEL_3_ROOM_1_COMPLETE";
 		public const string LEVEL_3_ROOM_2_COMPLETE = "LEVEL_3_ROOM_2_COMPLETE";
+	}
+
+	public class Note_Flags {
+		public const string NOTE_PICKED_UP = "NOTE_PICKED_UP";
+		public const string NOTE_PRESSED = "NOTE_PRESSED";
+		public const string NOTE_COMPLETED = "NOTE_COMPLETED";
 	}
 
 	public class Flags {

@@ -18,7 +18,7 @@ public class PlayerUIScript : MonoBehaviour
 	void Awake() {
 		if(SceneManager.GetActiveScene().name != "MainMenu" ||
 		SceneManager.GetActiveScene().name != "HubScene") {
-		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE, tempWin);
+		EventBroadcaster.Instance.AddObserver(EventNames.Goal_Notes.SHOW_COMPLETE_PANEL, LevelComplete);
 		}
 	}
 
@@ -31,7 +31,7 @@ public class PlayerUIScript : MonoBehaviour
 	// exists then try to consider that the observer might
 	// be conflicting itself.
 	Debug.Log("[PLAYER EVENT DEBUG] - DESTROYED");
-	EventBroadcaster.Instance.RemoveObserver(EventNames.Goal_Notes.LEVEL_1_COMPLETE);
+	EventBroadcaster.Instance.RemoveObserver(EventNames.Goal_Notes.SHOW_COMPLETE_PANEL);
 	}
 
     // Start is called before the first frame update
@@ -42,6 +42,7 @@ public class PlayerUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		/*
 		switch (SceneManager.GetActiveScene().name)
 		{
 			case "Level1":
@@ -54,7 +55,8 @@ public class PlayerUIScript : MonoBehaviour
 				noteCount = PlayerDataManager.notesFoundLevel3;
 				break;
 			
-		}
+		}*/
+		noteCount = GameManager.Instance.NotesFound();
 		noteCountText.text = "Notes found: " + noteCount.ToString();
 		if (Input.GetButtonDown("Cancel"))
 		//if(Input.GetKeyDown(KeyCode.Q))
@@ -79,25 +81,6 @@ public class PlayerUIScript : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 
 		}
-	}
-
-	// This is a debug function
-	// should load levelComplete instead
-	// if there are other functionality to implement
-	// either add to levelComplete function 
-	// or on the goToHub button, whichever
-	// or however winning will be implemented.
-	public void tempWin() {
-		// There should be a post event here indicating
-		// that specific level has been finished or use the 
-		// gameManager directly to modify a variable
-		// indicating level has been finished
-		// so that we dont have to make 3 copies of the same
-		// function just to clarify the level is finished
-		Parameters param = new Parameters();
-		param.PutExtra("levelName", SceneManager.GetActiveScene().name);
-		EventBroadcaster.Instance.PostEvent(EventNames.Flags.LEVEL_COMPLETED, param);
-		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 
 	public void LevelComplete() {
@@ -138,6 +121,10 @@ public class PlayerUIScript : MonoBehaviour
 	}
 
 	public void GoToHub() {
+		Parameters param = new Parameters();
+		param.PutExtra("levelName", SceneManager.GetActiveScene().name);
+		EventBroadcaster.Instance.PostEvent(EventNames.Flags.LEVEL_COMPLETED, param);
+
 		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 
