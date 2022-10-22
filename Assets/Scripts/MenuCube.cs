@@ -6,10 +6,11 @@ public class MenuCube : MonoBehaviour
 {
     public enum LevelSelect {
     	MainMenu,
+        TutorialScene,
     	Level1,
-	Level2,
-	Level3,
-	TheEnd
+	    Level2,
+	    Level3,
+	    TheEnd
     }
     public LevelSelect lvlSel;
     private string sceneName;
@@ -28,7 +29,10 @@ public class MenuCube : MonoBehaviour
     		case LevelSelect.MainMenu:
     			sceneName = SceneNames.MAIN_SCENE;
     			break;
-    		case LevelSelect.Level1:
+            case LevelSelect.TutorialScene:
+                sceneName = SceneNames.TUTORIAL_SCENE;
+                break;
+            case LevelSelect.Level1:
     			sceneName = SceneNames.LEVEL_ONE;
     			break;
 		case LevelSelect.Level2:
