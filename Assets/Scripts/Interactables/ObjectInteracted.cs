@@ -11,10 +11,12 @@ public class ObjectInteracted : MonoBehaviour
 
 	public void onInteract()
 	{
-		EventBroadcaster.Instance.PostEvent(objName + "_PRESSED");
-		Debug.Log(objName + "_PRESSED");
 		if(objName == "NOTE")
 		{
+			// Parameters param = new Parameters();
+			// param.PutExtra("lvlName", SceneManager.GetActiveScene().name);
+
+			EventBroadcaster.Instance.PostEvent(EventNames.Note_Flags.NOTE_PICKED_UP);
 			this.NotePickUp();
 		}
 	}
@@ -47,7 +49,6 @@ public class ObjectInteracted : MonoBehaviour
 	{
 	// Either replace with RemoveAllObserver (or whatever that sounded familiar with it
 	// or refactor so that observers could be removed properly.
-	Debug.Log("[EVENT DEBUG] - DESTROYED");
 	//EventBroadcaster.Instance.RemoveAllObservers();
 	}
 	
@@ -59,34 +60,5 @@ public class ObjectInteracted : MonoBehaviour
 	private void NotePickUp()
 	{
 		this.gameObject.SetActive(false);
-		//Debug.Log(SceneManager.GetActiveScene().name);
-		switch(SceneManager.GetActiveScene().name)
-		{
-			case "Level1":
-				Debug.Log("Found note for level 1");
-				PlayerDataManager.notesFoundLevel1++;
-				if (PlayerDataManager.notesFoundLevel1 == 7) winningCondition();
-				break;
-			case "Level2":
-				PlayerDataManager.notesFoundLevel2++;
-				if (PlayerDataManager.notesFoundLevel2 == 7) winningCondition();
-				break;
-			case "Level3":
-				PlayerDataManager.notesFoundLevel3++;
-				if (PlayerDataManager.notesFoundLevel3 == 1) winningCondition();
-				break;
-			default:
-				Debug.Log("Level not found, unable to add to note count");
-				this.gameObject.SetActive(true);
-
-				break;
-		}
-	}
-	
-	public void winningCondition()
-	{
-		EventBroadcaster.Instance.PostEvent(EventNames.Goal_Notes.LEVEL_1_COMPLETE);
-		//Debug.Log("Should be returning to hub scene");
-		//LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
 	}
 }
