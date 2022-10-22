@@ -2045,6 +2045,10 @@ PrefabInstance:
       value: Level3 Gate
       objectReference: {fileID: 0}
     - target: {fileID: 7828404238315967327, guid: a4f5d4b2af55e4e4d8637b2a8848162f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828404238315967327, guid: a4f5d4b2af55e4e4d8637b2a8848162f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
@@ -2868,6 +2872,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464699172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &467024787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7828404238315967327, guid: a4f5d4b2af55e4e4d8637b2a8848162f, type: 3}
+  m_PrefabInstance: {fileID: 353116048}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &489503315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,6 +4653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endIsland: {fileID: 437695004}
   wallObst: {fileID: 2000183180}
+  lvl3Gate: {fileID: 467024787}
 --- !u!1 &927439209
 GameObject:
   m_ObjectHideFlags: 0

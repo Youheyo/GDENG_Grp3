@@ -16,6 +16,8 @@ public class outlinescript : MonoBehaviour
 
 	[SerializeField] private LayerMask layerMask;
 
+	private float outlineCountdown = 0.5f;
+
 
 
 
@@ -47,6 +49,15 @@ public class outlinescript : MonoBehaviour
 					gameobj = null;
 				}
 		}
+	outlineCountdown -= Time.deltaTime;
+	if(outlineCountdown <= 0.0f) {
+		this.GetComponent<Outline>().enabled = false;
+		gameobj = null;
+	}
+    }
+
+    public void AssureOutline(){
+	outlineCountdown = 0.5f;
     }
 
     private void OnMouseEnter()

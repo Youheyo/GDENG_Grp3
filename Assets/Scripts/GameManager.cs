@@ -78,6 +78,14 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	public bool getL1() {
+		return isL1Done;
+	}
+
+	public bool getL2() {
+		return isL2Done;
+	}
+
 	public bool getL3() {
 		return isL3Done;
 	}

@@ -10,26 +10,25 @@ public class HubHandler : MonoBehaviour
 	[SerializeField] private GameObject endIsland;
 	[SerializeField] private GameObject wallObst;
 
+	[Header("Level3")]
+	[SerializeField] private GameObject lvl3Gate; //Replace with a group similar to EndIsland if there's any other ideas.
+
 	void Awake() {
 		Debug.Log("Value: " + GameManager.Instance.getL3());
-		unlockEnd();
+		UnlockEnd();
+		Unlocklvl3();
 	}
 
-	private void unlockEnd() {
+	private void UnlockEnd() {
 		if(GameManager.Instance.getL3() == true) {
 			wallObst.SetActive(false);
 			endIsland.SetActive(true);
 		}
 	}
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Unlocklvl3() {
+		if(GameManager.Instance.getL1() == true && GameManager.Instance.getL2() == true) {
+			lvl3Gate.SetActive(true);
+		}
+	}
 }

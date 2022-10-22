@@ -53,6 +53,7 @@ public class ReticleScript : MonoBehaviour
             {
                 hit.transform.gameObject.GetComponent<Outline>().OutlineColor = inactiveColor;
             }
+	    hit.transform.gameObject.GetComponent<outlinescript>().AssureOutline();
 
         }
         else
