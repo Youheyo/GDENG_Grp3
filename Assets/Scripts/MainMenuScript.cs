@@ -16,6 +16,8 @@ public class MainMenuScript : MonoBehaviour
 		{
 			panel.GetComponent<Image>().sprite = newSprite;
 			TitleText.text = "I finished my deadline and now I chill";
+			Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
 		}
 	}
 }
