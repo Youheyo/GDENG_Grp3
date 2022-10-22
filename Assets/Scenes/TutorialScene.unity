@@ -4263,7 +4263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483d480f5d891672591271303807c6f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlSel: 0
+  lvlSel: 2
 --- !u!65 &567996099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12784,6 +12784,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3298262796404428469, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298262796404428469, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5318513184904708486, guid: 532a6cf18b11a594bb39696840f3447d, type: 3}
