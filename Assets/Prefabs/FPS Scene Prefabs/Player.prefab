@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 3448502430718305770}
   - component: {fileID: 4713255175097956198}
   - component: {fileID: 4949275815652507272}
+  - component: {fileID: 1822893337985785048}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -990,6 +991,24 @@ MonoBehaviour:
   flashlightObject: {fileID: 465486935936870407}
   flashlightOn: {fileID: 6828050513141340312}
   flashlightOff: {fileID: 8295434197485163018}
+--- !u!114 &1822893337985785048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593595539190008141}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &691630380987839859
 GameObject:
   m_ObjectHideFlags: 0
