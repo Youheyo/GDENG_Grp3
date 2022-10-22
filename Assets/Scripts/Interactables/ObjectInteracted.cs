@@ -13,9 +13,6 @@ public class ObjectInteracted : MonoBehaviour
 	{
 		if(objName == "NOTE")
 		{
-			// Parameters param = new Parameters();
-			// param.PutExtra("lvlName", SceneManager.GetActiveScene().name);
-
 			EventBroadcaster.Instance.PostEvent(EventNames.Note_Flags.NOTE_PICKED_UP);
 			this.NotePickUp();
 		}

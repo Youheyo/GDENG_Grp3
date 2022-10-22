@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 	// Functions added here should only be done if something needs to be checked every frame
 	// Unless for debug purposes, do not add anything else here.
 	void Update(){
+		/*
 		if (Input.GetKeyDown(KeyCode.P)) {
 			Debug.Log("[DEBUG] - Note Increase");
 			EventBroadcaster.Instance.PostEvent(EventNames.Note_Flags.NOTE_PICKED_UP);
@@ -65,6 +66,7 @@ public class GameManager : MonoBehaviour
 			// Add Notes = NotePickUp()
 			// InstaComplete = RevealCompPanel();
 		}
+		*/
 	}
 
 	private void setFlag(Parameters param) {
