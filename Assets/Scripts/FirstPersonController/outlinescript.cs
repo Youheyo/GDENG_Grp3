@@ -19,7 +19,7 @@ public class outlinescript : MonoBehaviour
 
     void Awake()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
         //this.transform.GetComponent<Outline>().enabled = false;
     }
 
@@ -28,15 +28,15 @@ public class outlinescript : MonoBehaviour
     {
 
 
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 20f) &&
-            hit.transform.GetComponent<Rigidbody>() &&
-            hit.transform.gameObject.CompareTag("Clutchable"))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 20f))// &&
+            //hit.transform.GetComponent<Rigidbody>() &&
         {
+            if(hit.transform.gameObject.CompareTag("Clutchable"))
             gameobj = hit.transform.gameObject;
 
         }
 
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1) && hit.transform != null)
         {
             if (hit.transform.GetComponent<Outline>().enabled)
                 this.GetComponent<Outline>().enabled = false;
