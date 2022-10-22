@@ -8,18 +8,20 @@ public class outlinescript : MonoBehaviour
     [SerializeField] private new Camera camera;
     private RaycastHit hit;
 
-    private GameObject gameobj;
+    [SerializeField] private GameObject gameobj = null;
 
 
     [SerializeField] private Color activeColor;
     [SerializeField] private Color inactiveColor;
+
+	[SerializeField] private LayerMask layerMask;
 
 
 
 
     void Awake()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
         //this.transform.GetComponent<Outline>().enabled = false;
     }
 
@@ -28,23 +30,23 @@ public class outlinescript : MonoBehaviour
     {
 
 
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 20f) &&
-            hit.transform.GetComponent<Rigidbody>() &&
-            hit.transform.gameObject.CompareTag("Clutchable"))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 20f, layerMask))// &&
+            //hit.transform.GetComponent<Rigidbody>() &&
         {
+            if(hit.transform.gameObject.CompareTag("Clutchable"))
             gameobj = hit.transform.gameObject;
 
         }
 
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
-        {
-            if (hit.transform.GetComponent<Outline>().enabled)
-                this.GetComponent<Outline>().enabled = false;
-        }
-
-
-
-
+		if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+		{
+			if (gameobj != null)
+				if (gameobj.transform.GetComponent<Outline>().enabled)
+				{
+					this.GetComponent<Outline>().enabled = false;
+					gameobj = null;
+				}
+		}
     }
 
     private void OnMouseEnter()
@@ -58,6 +60,7 @@ public class outlinescript : MonoBehaviour
     {
 
         this.GetComponent<Outline>().enabled = false;
+		gameobj = null;
 
 
     }

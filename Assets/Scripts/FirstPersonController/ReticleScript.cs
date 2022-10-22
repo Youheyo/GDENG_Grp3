@@ -15,6 +15,8 @@ public class ReticleScript : MonoBehaviour
     [Tooltip("Must be same as: GrabScript")]
     [SerializeField] private float maxReach = 20f;
 
+	[SerializeField] GameObject hitObj = null;
+
     private void Start()
     {
 
@@ -27,6 +29,8 @@ public class ReticleScript : MonoBehaviour
         if (Physics.Raycast(camera.position, camera.forward, out hit, maxReach) &&
             hit.transform.gameObject.CompareTag("Clutchable"))
         {
+			hitObj = hit.transform.gameObject;
+
             if (!hit.transform.gameObject.GetComponent<Outline>())
                 hit.transform.gameObject.AddComponent<Outline>();
             else if (hit.transform.gameObject.GetComponent<Outline>().OutlineColor != inactiveColor && !Input.GetMouseButton(0))
@@ -53,9 +57,18 @@ public class ReticleScript : MonoBehaviour
         }
         else
         {
+				
+			if(hitObj != null)
+			{
 
-            hit.transform.gameObject.GetComponent<Outline>().enabled = false;
-            reticle.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, inactiveColor.a);
+				hitObj.transform.gameObject.GetComponent<Outline>().enabled = false;
+				reticle.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, inactiveColor.a);
+				hitObj = null;
+			}
+
+
+            //hit.transform.gameObject.GetComponent<Outline>().enabled = false;
+            //reticle.color = new Color(inactiveColor.r, inactiveColor.g, inactiveColor.b, inactiveColor.a);
         }
     }
 }

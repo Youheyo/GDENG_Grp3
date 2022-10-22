@@ -58,13 +58,13 @@ public class ObjectInteracted : MonoBehaviour
 
 	private void NotePickUp()
 	{
+		this.gameObject.SetActive(false);
 		//Debug.Log(SceneManager.GetActiveScene().name);
 		switch(SceneManager.GetActiveScene().name)
 		{
 			case "Level1":
 				Debug.Log("Found note for level 1");
 				PlayerDataManager.notesFoundLevel1++;
-				this.gameObject.SetActive(false);
 				if (PlayerDataManager.notesFoundLevel1 == 7) winningCondition();
 				break;
 			case "Level2":
@@ -73,10 +73,12 @@ public class ObjectInteracted : MonoBehaviour
 				break;
 			case "Level3":
 				PlayerDataManager.notesFoundLevel3++;
-				if (PlayerDataManager.notesFoundLevel3 == 7) winningCondition();
+				if (PlayerDataManager.notesFoundLevel3 == 1) winningCondition();
 				break;
 			default:
 				Debug.Log("Level not found, unable to add to note count");
+				this.gameObject.SetActive(true);
+
 				break;
 		}
 	}

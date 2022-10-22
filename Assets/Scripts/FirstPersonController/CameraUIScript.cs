@@ -21,15 +21,17 @@ public class CameraUIScript : MonoBehaviour
     [SerializeField] private GameObject pushPanel;
     [SerializeField] private GameObject interactPanel;
 
+	[SerializeField] private bool holdingObject = false;
+
     // Update is called once per frame
     void Update()
     {
         //Looked
-        if (Physics.Raycast(camera.position, camera.forward, out hit, maxReach) &&
-            hit.transform.GetComponent<Rigidbody>() &&
-            hit.transform.gameObject.CompareTag("Clutchable") || hit.transform.gameObject.CompareTag("Interactable"))
+        if (Physics.Raycast(camera.position, camera.forward, out hit, maxReach)) //&&
+            //hit.transform.GetComponent<Rigidbody>() &&
+            //hit.transform.gameObject.CompareTag("Clutchable") || hit.transform.gameObject.CompareTag("Interactable"))
         {
-            lookedObject = null;
+            //lookedObject = null;
             lookedObject = hit.transform.gameObject;
         }
         //Away
@@ -69,16 +71,15 @@ public class CameraUIScript : MonoBehaviour
         //if grabbing the object
         if (lookedObject != null && Input.GetMouseButton(0))
         {
-            if (lookedObject.transform.CompareTag("Clutchable"))
+			holdingObject = true;
+        }
+		else holdingObject = false;
+            if (lookedObject != null && lookedObject.transform.CompareTag("Clutchable") && holdingObject)
             {
                 grabPanel.SetActive(false);
                 throwPanel.SetActive(true);
                 pushPanel.SetActive(false);
                 interactPanel.SetActive(false);
             }
-        }
-
-
-
     }
 }

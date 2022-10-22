@@ -733,7 +733,7 @@ MonoBehaviour:
   rayLength: 10
   layerMaskInteract:
     serializedVersion: 2
-    m_Bits: 193
+    m_Bits: 128
 --- !u!1 &593595538584117984
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +784,7 @@ GameObject:
   - component: {fileID: 3448502430718305770}
   - component: {fileID: 4713255175097956198}
   - component: {fileID: 4949275815652507272}
+  - component: {fileID: 1822893337985785048}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -932,6 +933,7 @@ MonoBehaviour:
   activeColor: {r: 1, g: 0.55825317, b: 0, a: 0.78431374}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   maxReach: 3
+  hitObj: {fileID: 0}
 --- !u!114 &3448502430718305770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,6 +952,7 @@ MonoBehaviour:
   throwPanel: {fileID: 6537138716398343202}
   pushPanel: {fileID: 8542283019280951887}
   interactPanel: {fileID: 7632196672187802428}
+  holdingObject: 0
 --- !u!114 &4713255175097956198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -963,8 +966,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 593595538532748238}
+  gameobj: {fileID: 0}
   activeColor: {r: 1, g: 0.5568628, b: 0, a: 0.78431374}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &4949275815652507272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +991,24 @@ MonoBehaviour:
   flashlightObject: {fileID: 465486935936870407}
   flashlightOn: {fileID: 6828050513141340312}
   flashlightOff: {fileID: 8295434197485163018}
+--- !u!114 &1822893337985785048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593595539190008141}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &691630380987839859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,9 +2022,9 @@ RectTransform:
   m_Father: {fileID: 4392183585192640673}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -371, y: 254.20001}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -27.799988}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8611650604578601617
