@@ -8,8 +8,13 @@ public class MainMenuHandler : MonoBehaviour
     	Cursor.lockState = CursorLockMode.None;
     }
     public void playBtn() {
-    	LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
-        Time.timeScale = 1;
+	if(GameManager.Instance.getTut() == false) {
+		LoadManager.Instance.LoadScene(SceneNames.TUTORIAL_SCENE, false);
+		Time.timeScale = 1;
+	} else {
+    		LoadManager.Instance.LoadScene(SceneNames.HUB_SCENE, false);
+        	Time.timeScale = 1;
+	}
     }
     
     public void quitBtn() {

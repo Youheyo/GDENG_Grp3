@@ -9,9 +9,9 @@ public class MenuCube : MonoBehaviour
         TutorialScene,
         HubScene,
     	Level1,
-	    Level2,
-	    Level3,
-	    TheEnd
+	Level2,
+	Level3,
+	TheEnd
     }
     public LevelSelect lvlSel;
     private string sceneName;
@@ -20,6 +20,9 @@ public class MenuCube : MonoBehaviour
     	//Debug.Log(collision.collider.name);
         if(collision.collider.name == "Player") {
             evalScene(this.lvlSel);
+	    if(LoadManager.Instance.GetSceneName() == "TutorialScene") {
+		EventBroadcaster.Instance.PostEvent(EventNames.Flags.TUTORIAL_COMPLETED);
+	    }
             LoadManager.Instance.LoadScene(sceneName, false);
             //Debug.Log("Player collide");
         }
@@ -30,13 +33,13 @@ public class MenuCube : MonoBehaviour
     		case LevelSelect.MainMenu:
     			sceneName = SceneNames.MAIN_SCENE;
     			break;
-            case LevelSelect.TutorialScene:
-                sceneName = SceneNames.TUTORIAL_SCENE;
-                break;            
-            case LevelSelect.HubScene:
-                sceneName = SceneNames.HUB_SCENE;
-                break;
-            case LevelSelect.Level1:
+		case LevelSelect.TutorialScene:
+        		sceneName = SceneNames.TUTORIAL_SCENE;
+			break;            
+        	case LevelSelect.HubScene:
+                	sceneName = SceneNames.HUB_SCENE;
+                	break;
+        	case LevelSelect.Level1:
     			sceneName = SceneNames.LEVEL_ONE;
     			break;
 		case LevelSelect.Level2:

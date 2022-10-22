@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private bool isL1Done = false;
 	[SerializeField] private bool isL2Done = false;
 	[SerializeField] private bool isL3Done = false;
+	[SerializeField] private bool isTutDone = false;
 
 	[Header("Notes Found")]
 	[SerializeField] private int NotesFoundAmt = 0;
@@ -49,7 +50,8 @@ public class GameManager : MonoBehaviour
 		// in case we did something that persists
 		// for sessions.
 		EventBroadcaster.Instance.AddObserver(EventNames.Note_Flags.NOTE_PICKED_UP, NotePickUp);
-		//EventBroadcaster.Instance.AddObserver(EventNames.Note_Flags.NOTE_COMPLETED, RevealCompPanel);
+		//EventBroadcaster.Instance.AddObserver(EventNames.Note_Flags.NOTE_COMPLETED, RevealCompPanel);	
+		EventBroadcaster.Instance.AddObserver(EventNames.Flags.TUTORIAL_COMPLETED, TutorialFinished);
 		EventBroadcaster.Instance.AddObserver(EventNames.Flags.LEVEL_COMPLETED, setFlag);
 	}
 
@@ -125,6 +127,12 @@ public class GameManager : MonoBehaviour
 		*/
 	}
 
+	private void TutorialFinished() {
+		isTutDone = true;
+		// Tutorial is done for the rest of the session so assume it won't be used anymore.
+		EventBroadcaster.Instance.RemoveObserver(EventNames.Flags.TUTORIAL_COMPLETED);
+	}
+
 	private void RevealCompPanel() {
 		EventBroadcaster.Instance.PostEvent(EventNames.Goal_Notes.SHOW_COMPLETE_PANEL);
 	}
@@ -143,6 +151,10 @@ public class GameManager : MonoBehaviour
 
 	public bool getL3() {
 		return isL3Done;
+	}
+
+	public bool getTut() {
+		return isTutDone;
 	}
     
     

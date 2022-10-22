@@ -38,6 +38,7 @@ public class EventNames {
 	}
 
 	public class Flags {
+		public const string TUTORIAL_COMPLETED = "TUTORIAL_COMPLETED";
 		public const string LEVEL_COMPLETED = "LEVEL_COMPLETED";
 		public const string GAME_COMPLETED = "GAME_COMPLETED";
 	}
