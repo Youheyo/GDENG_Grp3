@@ -11,4 +11,5 @@ public class SceneNames {
 	public const string LEVEL_ONE = "Level1";
 	public const string LEVEL_TWO = "Level2";
 	public const string LEVEL_THREE = "Level3";
+	public const string LEVEL_END = "EndScene";
 }

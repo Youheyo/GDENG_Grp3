@@ -845,7 +845,7 @@ MonoBehaviour:
   speed: 6
   sprintMultiplier: 2
   gravity: -9.81
-  jumpHeight: 2
+  jumpHeight: 2.5
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
@@ -2915,7 +2915,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90431f392eb12814a9b2dceb0cd09cdf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -3312,7 +3312,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d33ade4579000f24fb23d0ac87aad677, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
 	}
 
 	private void setFlag(Parameters param) {
-		Debug.Log("[DEBUG] Retrieved Name from Event: " + param);
 		string name = param.GetStringExtra("levelName", "MISSINGNO");
+		Debug.Log("[DEBUG] Retrieved Name from Event: " + name);
 		if(name != "MISSINGNO") {
 			switch(name) {
 				case "Level1":
@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	public bool getL3() {
+		return isL3Done;
+	}
     
     
 }

@@ -8,17 +8,18 @@ public class MenuCube : MonoBehaviour
     	MainMenu,
     	Level1,
 	Level2,
-	Level3
+	Level3,
+	TheEnd
     }
     public LevelSelect lvlSel;
     private string sceneName;
     void OnCollisionEnter(Collision collision)
     {
-    	Debug.Log(collision.collider.name);
+    	//Debug.Log(collision.collider.name);
         if(collision.collider.name == "Player") {
             evalScene(this.lvlSel);
             LoadManager.Instance.LoadScene(sceneName, false);
-            Debug.Log("Player collide");
+            //Debug.Log("Player collide");
         }
     }
     
@@ -35,6 +36,9 @@ public class MenuCube : MonoBehaviour
 			break;
 		case LevelSelect.Level3:
 			sceneName = SceneNames.LEVEL_THREE;
+			break;
+		case LevelSelect.TheEnd:
+			sceneName = SceneNames.LEVEL_END;
 			break;
     		default:
     			Debug.Log("[ERROR]");
